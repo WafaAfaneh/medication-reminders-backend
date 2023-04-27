@@ -1,0 +1,26 @@
+{
+  "medicationReminderServerApp": {
+    "reminder": {
+      "home": {
+        "title": "Reminders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Reminder",
+        "createOrEditLabel": "Create or edit a Reminder",
+        "notFound": "No Reminders found"
+      },
+      "created": "A new Reminder is created with identifier {{ param }}",
+      "updated": "A Reminder is updated with identifier {{ param }}",
+      "deleted": "A Reminder is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Reminder {{ id }}?"
+      },
+      "detail": {
+        "title": "Reminder"
+      },
+      "id": "ID",
+      "date": "Date",
+      "status": "Status",
+      "notification": "Notification"
+    }
+  }
+}

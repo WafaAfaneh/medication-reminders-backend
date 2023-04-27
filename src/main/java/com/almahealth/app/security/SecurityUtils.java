@@ -51,6 +51,12 @@ public final class SecurityUtils {
             .map(authentication -> (String) authentication.getCredentials());
     }
 
+    public static MedicationUser getCurrentUser() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        MedicationUser medicationUser = (MedicationUser) auth.getPrincipal();
+        return medicationUser;
+    }
+
     /**
      * Check if a user is authenticated.
      *

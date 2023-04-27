@@ -1,9 +1,12 @@
 package com.almahealth.app.web.rest;
 
+import com.almahealth.app.domain.User;
 import com.almahealth.app.security.jwt.JWTFilter;
 import com.almahealth.app.security.jwt.TokenProvider;
+import com.almahealth.app.service.UserService;
 import com.almahealth.app.web.rest.vm.LoginVM;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Optional;
 import javax.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -12,6 +15,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -21,11 +25,18 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api")
 public class UserJWTController {
 
+    private final UserService userService;
+
     private final TokenProvider tokenProvider;
 
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
-    public UserJWTController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder) {
+    public UserJWTController(
+        UserService userService,
+        TokenProvider tokenProvider,
+        AuthenticationManagerBuilder authenticationManagerBuilder
+    ) {
+        this.userService = userService;
         this.tokenProvider = tokenProvider;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
     }
@@ -39,7 +50,13 @@ public class UserJWTController {
 
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = tokenProvider.createToken(authentication, loginVM.isRememberMe());
+        Long userId = userService
+            .getUserByLogin(loginVM.getUsername())
+            .map(User::getId)
+            .orElseThrow(() ->
+                new UsernameNotFoundException("User with username" + loginVM.getUsername() + " was not found in the database")
+            );
+        String jwt = tokenProvider.createToken(authentication, loginVM.isRememberMe(), userId);
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
         return new ResponseEntity<>(new JWTToken(jwt), httpHeaders, HttpStatus.OK);

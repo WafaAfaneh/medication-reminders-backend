@@ -1,0 +1,10 @@
+{
+  "medicationReminderServerApp": {
+    "Status": {
+      "null": "",
+      "TAKEN": "TAKEN",
+      "SKIPPED": "SKIPPED",
+      "NOT_INTERACTED": "NOT_INTERACTED"
+    }
+  }
+}

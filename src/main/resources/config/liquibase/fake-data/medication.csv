@@ -1,0 +1,11 @@
+id;name;dosage_quantity;type;active;notification_id;user_id;created_by;last_modified_by
+1;Acetaminophen;2;CAPSULE;true;1;1;system;system
+2;Lexapro;1;TABLET;true;2;1;system;system
+3;Otezla;2;TABLET;false;3;1;system;system
+4;Doxycycline;1;INJECTION;true;4;1;system;system
+5;Lofexidine;2;TABLET;true;5;1;system;system
+6;Otrivin;1;SPRAY;true;6;1;system;system
+7;Aclovate Cream;1;TOPICAL;false;7;1;system;system
+8;TYLENOL;2;LIQUID;true;8;1;system;system
+9;Nystatin;1;POWDER;true;9;1;system;system
+10;DesOwen;1;CREAM;true;10;1;system;system

@@ -210,4 +210,5 @@ jhipster:
 # https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
-# application:
+application:
+  fcm-service-account-file: medicatioonreminderclient-firebase-adminsdk-xnnb0-b924c9f64a.json

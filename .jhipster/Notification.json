@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20230327203549",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "notification",
+  "fields": [
+    {
+      "fieldName": "displayName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "notes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Notification",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "frequency",
+      "otherEntityRelationshipName": "notification",
+      "ownerSide": true,
+      "relationshipName": "frequency",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "reminder",
+      "otherEntityRelationshipName": "notification",
+      "relationshipName": "reminder",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "timeOfDay",
+      "otherEntityRelationshipName": "notification",
+      "relationshipName": "timeOfDay",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "medication",
+      "otherEntityRelationshipName": "notification",
+      "ownerSide": false,
+      "relationshipName": "medication",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

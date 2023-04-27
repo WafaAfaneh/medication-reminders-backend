@@ -1,0 +1,29 @@
+{
+  "medicationReminderServerApp": {
+    "medication": {
+      "home": {
+        "title": "Medications",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Medication",
+        "createOrEditLabel": "Create or edit a Medication",
+        "notFound": "No Medications found"
+      },
+      "created": "A new Medication is created with identifier {{ param }}",
+      "updated": "A Medication is updated with identifier {{ param }}",
+      "deleted": "A Medication is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Medication {{ id }}?"
+      },
+      "detail": {
+        "title": "Medication"
+      },
+      "id": "ID",
+      "name": "Name",
+      "dosageQuantity": "Dosage Quantity",
+      "type": "Type",
+      "active": "Active",
+      "notification": "Notification",
+      "user": "User"
+    }
+  }
+}

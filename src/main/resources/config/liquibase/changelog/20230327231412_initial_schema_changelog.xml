@@ -1,0 +1,210 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="Wafa (generated)" id="1679958868296-1">
+        <createTable tableName="frequency">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="frequencyPK"/>
+            </column>
+            <column name="type" type="VARCHAR(255)"/>
+            <column name="saturday" type="boolean"/>
+            <column name="sunday" type="boolean"/>
+            <column name="monday" type="boolean"/>
+            <column name="tuesday" type="boolean"/>
+            <column name="wednesday" type="boolean"/>
+            <column name="thursday" type="boolean"/>
+            <column name="friday" type="boolean"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-2">
+        <createTable tableName="authority">
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="authorityPK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-3">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="userPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+            <column name="activated" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activation_key" type="VARCHAR(20)"/>
+            <column name="email" type="VARCHAR(254)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="image_url" type="VARCHAR(256)"/>
+            <column name="lang_key" type="VARCHAR(10)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="login" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password_hash" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reset_date" type="datetime(6)"/>
+            <column name="reset_key" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-4">
+        <createTable tableName="user_authority">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_authorityPK"/>
+            </column>
+            <column name="authority_name" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_authorityPK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-5">
+        <createTable tableName="medication">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="medicationPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+            <column name="active" type="BIT"/>
+            <column name="dosage_quantity" type="DOUBLE PRECISION"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="type" type="VARCHAR(255)"/>
+            <column name="notification_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-6">
+        <createTable tableName="notification">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="notificationPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+            <column name="display_name" type="VARCHAR(255)"/>
+            <column name="notes" type="VARCHAR(255)"/>
+            <column name="start_date" type="date"/>
+            <column name="frequency_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-7">
+        <createTable tableName="reminder">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="reminderPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+            <column name="date" type="datetime(6)"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="notification_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-8">
+        <createTable tableName="time_of_day">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="time_of_dayPK"/>
+            </column>
+            <column name="time" type="time"/>
+            <column name="notification_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-9">
+        <addUniqueConstraint columnNames="email" constraintName="UC_JHI_USEREMAIL_COL" tableName="user"/>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-10">
+        <addUniqueConstraint columnNames="login" constraintName="UC_JHI_USERLOGIN_COL" tableName="user"/>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-11">
+        <addUniqueConstraint columnNames="notification_id" constraintName="UC_MEDICATIONNOTIFICATION_ID_COL" tableName="medication"/>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-12">
+        <addUniqueConstraint columnNames="frequency_id" constraintName="UC_NOTIFICATIONFREQUENCY_ID_COL" tableName="notification"/>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-13">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_authority" constraintName="FK290okww5jujghp4el5i7mgwu0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="user" validate="true"/>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-14">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="user_authority" constraintName="FK4psxl0jtx6nr7rhqbynr6itoc" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="authority" validate="true"/>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-15">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="medication" constraintName="FK9cjqfbjf8u01gewfjckcn2651" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="user" validate="true"/>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-16">
+        <addForeignKeyConstraint baseColumnNames="notification_id" baseTableName="reminder" constraintName="FKccso5h738qmypbx4mf5kv77b6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="notification" validate="true"/>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-17">
+        <addForeignKeyConstraint baseColumnNames="notification_id" baseTableName="medication" constraintName="FKh38rqgn4xwpvrc0khb4igg26f" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="notification" validate="true"/>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-18">
+        <addForeignKeyConstraint baseColumnNames="notification_id" baseTableName="time_of_day" constraintName="FKkx8qvau8vma15xe0lhi45dibx" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="notification" validate="true"/>
+    </changeSet>
+    <changeSet author="Wafa (generated)" id="1679958868296-19">
+        <addForeignKeyConstraint baseColumnNames="frequency_id" baseTableName="notification" constraintName="FKow5g8hrbv5s27v1f88cgbrkbd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="frequency" validate="true"/>
+    </changeSet>
+    <changeSet id="Wafa (generated)" author="1679958868296-20">
+        <loadData
+            file="config/liquibase/data/user.csv"
+            separator=";"
+            tableName="user"
+            usePreparedStatements="true">
+            <column name="activated" type="boolean"/>
+            <column name="created_date" type="timestamp"/>
+        </loadData>
+<!--        <dropDefaultValue tableName="user" columnName="created_date" columnDataType="${datetimeType}"/>-->
+        <loadData
+            file="config/liquibase/data/authority.csv"
+            separator=";"
+            tableName="authority"
+            usePreparedStatements="true">
+            <column name="name" type="string"/>
+        </loadData>
+        <loadData
+            file="config/liquibase/data/user_authority.csv"
+            separator=";"
+            tableName="user_authority"
+            usePreparedStatements="true">
+            <column name="user_id" type="numeric"/>
+        </loadData>
+        <loadData
+            file="config/liquibase/fake-data/frequency.csv"
+            separator=";"
+            tableName="frequency"
+            usePreparedStatements="true">
+        </loadData>
+        <loadData
+            file="config/liquibase/fake-data/notification.csv"
+            separator=";"
+            tableName="notification"
+            usePreparedStatements="true">
+            <column name="created_date" type="timestamp"/>
+        </loadData>
+        <loadData
+            file="config/liquibase/fake-data/medication.csv"
+            separator=";"
+            tableName="medication"
+            usePreparedStatements="true">
+            <column name="created_date" type="timestamp"/>
+        </loadData>
+        <loadData
+            file="config/liquibase/fake-data/time_of_day.csv"
+            separator=";"
+            tableName="time_of_day"
+            usePreparedStatements="true">
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

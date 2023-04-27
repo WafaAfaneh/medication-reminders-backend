@@ -1,0 +1,47 @@
+{
+  "applications": "*",
+  "changelogDate": "20230327203548",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "medication",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dosageQuantity",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "MedicationType",
+      "fieldValues": "CAPSULE,TABLET,LIQUID,TOPICAL,CREAM,FOAM,POWDER,SPRAY,INJECTION"
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Medication",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "notification",
+      "otherEntityRelationshipName": "medication",
+      "ownerSide": true,
+      "relationshipName": "notification",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "medication",
+      "relationshipName": "user",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

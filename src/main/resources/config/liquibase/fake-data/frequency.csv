@@ -1,0 +1,11 @@
+id;type;saturday;sunday;monday;tuesday;wednesday;thursday;friday
+1;DAILY;false;false;false;false;false;false;false
+2;WEEKLY;true;false;true;false;false;true;false
+3;DAILY;false;false;false;false;false;false;false
+4;WEEKLY;false;true;true;false;true;false;true
+5;DAILY;false;false;false;false;false;false;false
+6;WEEKLY;true;false;true;false;true;true;true
+7;DAILY;false;false;false;false;false;false;false
+8;WEEKLY;false;false;false;false;true;true;false
+9;DAILY;false;false;false;false;false;false;false
+10;WEEKLY;true;false;true;false;true;false;true

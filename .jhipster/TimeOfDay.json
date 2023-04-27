@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20230327203550",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "time_of_day",
+  "fields": [
+    {
+      "fieldName": "time",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TimeOfDay",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "notification",
+      "otherEntityRelationshipName": "timeOfDay",
+      "relationshipName": "notification",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

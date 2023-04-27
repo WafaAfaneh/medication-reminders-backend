@@ -1,0 +1,57 @@
+{
+  "applications": "*",
+  "changelogDate": "20230327203547",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "frequency",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "FrequencyType",
+      "fieldValues": "DAILY,WEEKLY"
+    },
+    {
+      "fieldName": "saturday",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "sunday",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "monday",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "tuesday",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "wednesday",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "thursday",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "friday",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Frequency",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "notification",
+      "otherEntityRelationshipName": "frequency",
+      "ownerSide": false,
+      "relationshipName": "notification",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

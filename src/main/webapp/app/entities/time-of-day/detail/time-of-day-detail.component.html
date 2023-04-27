@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="timeOfDay">
+      <h2 data-cy="timeOfDayDetailsHeading"><span jhiTranslate="medicationReminderServerApp.timeOfDay.detail.title">Time Of Day</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ timeOfDay.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.timeOfDay.time">Time</span></dt>
+        <dd>
+          <span>{{ timeOfDay.time | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.timeOfDay.notification">Notification</span></dt>
+        <dd>
+          <div *ngIf="timeOfDay.notification">
+            <a [routerLink]="['/notification', timeOfDay.notification.id, 'view']">{{ timeOfDay.notification.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/time-of-day', timeOfDay.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

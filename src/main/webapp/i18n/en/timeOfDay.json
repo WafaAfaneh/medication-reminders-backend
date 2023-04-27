@@ -1,0 +1,25 @@
+{
+  "medicationReminderServerApp": {
+    "timeOfDay": {
+      "home": {
+        "title": "Time Of Days",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Time Of Day",
+        "createOrEditLabel": "Create or edit a Time Of Day",
+        "notFound": "No Time Of Days found"
+      },
+      "created": "A new Time Of Day is created with identifier {{ param }}",
+      "updated": "A Time Of Day is updated with identifier {{ param }}",
+      "deleted": "A Time Of Day is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Time Of Day {{ id }}?"
+      },
+      "detail": {
+        "title": "Time Of Day"
+      },
+      "id": "ID",
+      "time": "Time",
+      "notification": "Notification"
+    }
+  }
+}

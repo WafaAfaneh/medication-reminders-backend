@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="medication">
+      <h2 data-cy="medicationDetailsHeading"><span jhiTranslate="medicationReminderServerApp.medication.detail.title">Medication</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ medication.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.medication.name">Name</span></dt>
+        <dd>
+          <span>{{ medication.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.medication.dosageQuantity">Dosage Quantity</span></dt>
+        <dd>
+          <span>{{ medication.dosageQuantity }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.medication.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'medicationReminderServerApp.MedicationType.' + medication.type }}">{{ medication.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.medication.active">Active</span></dt>
+        <dd>
+          <span>{{ medication.active }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.medication.notification">Notification</span></dt>
+        <dd>
+          <div *ngIf="medication.notification">
+            <a [routerLink]="['/notification', medication.notification.id, 'view']">{{ medication.notification.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.medication.user">User</span></dt>
+        <dd>
+          <span>{{ medication.user?.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/medication', medication.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

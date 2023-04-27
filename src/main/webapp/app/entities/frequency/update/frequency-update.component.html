@@ -1,0 +1,83 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-frequency-heading"
+        data-cy="FrequencyCreateUpdateHeading"
+        jhiTranslate="medicationReminderServerApp.frequency.home.createOrEditLabel"
+      >
+        Create or edit a Frequency
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="medicationReminderServerApp.frequency.type" for="field_type">Type</label>
+          <select class="form-control" name="type" formControlName="type" id="field_type" data-cy="type">
+            <option [ngValue]="null">{{ 'medicationReminderServerApp.FrequencyType.null' | translate }}</option>
+            <option *ngFor="let frequencyType of frequencyTypeValues" [value]="frequencyType">
+              {{ 'medicationReminderServerApp.FrequencyType.' + frequencyType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="medicationReminderServerApp.frequency.saturday" for="field_saturday">Saturday</label>
+          <input type="checkbox" class="form-check" name="saturday" id="field_saturday" data-cy="saturday" formControlName="saturday" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="medicationReminderServerApp.frequency.sunday" for="field_sunday">Sunday</label>
+          <input type="checkbox" class="form-check" name="sunday" id="field_sunday" data-cy="sunday" formControlName="sunday" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="medicationReminderServerApp.frequency.monday" for="field_monday">Monday</label>
+          <input type="checkbox" class="form-check" name="monday" id="field_monday" data-cy="monday" formControlName="monday" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="medicationReminderServerApp.frequency.tuesday" for="field_tuesday">Tuesday</label>
+          <input type="checkbox" class="form-check" name="tuesday" id="field_tuesday" data-cy="tuesday" formControlName="tuesday" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="medicationReminderServerApp.frequency.wednesday" for="field_wednesday">Wednesday</label>
+          <input type="checkbox" class="form-check" name="wednesday" id="field_wednesday" data-cy="wednesday" formControlName="wednesday" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="medicationReminderServerApp.frequency.thursday" for="field_thursday">Thursday</label>
+          <input type="checkbox" class="form-check" name="thursday" id="field_thursday" data-cy="thursday" formControlName="thursday" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="medicationReminderServerApp.frequency.friday" for="field_friday">Friday</label>
+          <input type="checkbox" class="form-check" name="friday" id="field_friday" data-cy="friday" formControlName="friday" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

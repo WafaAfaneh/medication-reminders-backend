@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="frequency">
+      <h2 data-cy="frequencyDetailsHeading"><span jhiTranslate="medicationReminderServerApp.frequency.detail.title">Frequency</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ frequency.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.frequency.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'medicationReminderServerApp.FrequencyType.' + frequency.type }}">{{ frequency.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.frequency.saturday">Saturday</span></dt>
+        <dd>
+          <span>{{ frequency.saturday }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.frequency.sunday">Sunday</span></dt>
+        <dd>
+          <span>{{ frequency.sunday }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.frequency.monday">Monday</span></dt>
+        <dd>
+          <span>{{ frequency.monday }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.frequency.tuesday">Tuesday</span></dt>
+        <dd>
+          <span>{{ frequency.tuesday }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.frequency.wednesday">Wednesday</span></dt>
+        <dd>
+          <span>{{ frequency.wednesday }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.frequency.thursday">Thursday</span></dt>
+        <dd>
+          <span>{{ frequency.thursday }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.frequency.friday">Friday</span></dt>
+        <dd>
+          <span>{{ frequency.friday }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/frequency', frequency.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

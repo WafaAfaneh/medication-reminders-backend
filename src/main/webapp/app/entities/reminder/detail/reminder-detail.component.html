@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="reminder">
+      <h2 data-cy="reminderDetailsHeading"><span jhiTranslate="medicationReminderServerApp.reminder.detail.title">Reminder</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ reminder.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.reminder.date">Date</span></dt>
+        <dd>
+          <span>{{ reminder.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.reminder.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'medicationReminderServerApp.Status.' + reminder.status }}">{{ reminder.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="medicationReminderServerApp.reminder.notification">Notification</span></dt>
+        <dd>
+          <div *ngIf="reminder.notification">
+            <a [routerLink]="['/notification', reminder.notification.id, 'view']">{{ reminder.notification.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/reminder', reminder.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

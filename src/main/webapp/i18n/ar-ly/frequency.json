@@ -1,0 +1,32 @@
+{
+  "medicationReminderServerApp": {
+    "frequency": {
+      "home": {
+        "title": "Frequencies",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Frequency",
+        "createOrEditLabel": "Create or edit a Frequency",
+        "notFound": "No Frequencies found"
+      },
+      "created": "A new Frequency is created with identifier {{ param }}",
+      "updated": "A Frequency is updated with identifier {{ param }}",
+      "deleted": "A Frequency is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Frequency {{ id }}?"
+      },
+      "detail": {
+        "title": "Frequency"
+      },
+      "id": "ID",
+      "type": "Type",
+      "saturday": "Saturday",
+      "sunday": "Sunday",
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "notification": "Notification"
+    }
+  }
+}

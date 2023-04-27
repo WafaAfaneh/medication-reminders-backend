@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20230327203551",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "reminder",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "TAKEN,SKIPPED,NOT_INTERACTED"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Reminder",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "notification",
+      "otherEntityRelationshipName": "reminder",
+      "relationshipName": "notification",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}
