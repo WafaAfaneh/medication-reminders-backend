@@ -4,7 +4,7 @@ This application was generated using JHipster 7.9.3, you can find documentation 
 
 ## Project Structure
 
-- Springboot Backend Server
+- Spring Boot Backend Server (Makesure to use MySQL V8 and the mockup data already included in the database changelog master.xml).
 - Angular FrontEnd website containing Swagger UI Page to document the APIs (Please use admin/admin account).
 
 ## Development
