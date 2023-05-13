@@ -17,7 +17,6 @@ public class MedicationRemindersJob {
     }
 
     @Scheduled(cron = "0 0 0 * * *")
-    //        @Scheduled(cron = "0 * * * * *")
     public void create() {
         medicationService.createDayNotificationsReminders();
         systemCache.refreshJob();

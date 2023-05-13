@@ -35,7 +35,7 @@ public class Notification extends AbstractAuditingEntity<Long> implements Serial
     @JoinColumn(name = "frequency_id", referencedColumnName = "id", unique = true)
     private Frequency frequency;
 
-    @OneToMany(mappedBy = "notification", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "notification", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties(value = { "notification" }, allowSetters = true)
     private Set<Reminder> reminders = new HashSet<>();
 

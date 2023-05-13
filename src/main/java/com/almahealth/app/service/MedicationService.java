@@ -21,7 +21,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,8 +39,6 @@ public class MedicationService {
 
     private final ReminderRepository reminderRepository;
 
-    private final SimpMessageSendingOperations messagingTemplate;
-
     private final FcmClient fcmClient;
 
     private final SystemCache systemCache;
@@ -58,14 +55,12 @@ public class MedicationService {
         MedicationRepository medicationRepository,
         MedicationMapper medicationMapper,
         ReminderRepository reminderRepository,
-        SimpMessageSendingOperations messagingTemplate,
         FcmClient fcmClient,
         @Lazy SystemCache systemCache
     ) {
         this.medicationRepository = medicationRepository;
         this.medicationMapper = medicationMapper;
         this.reminderRepository = reminderRepository;
-        this.messagingTemplate = messagingTemplate;
         this.fcmClient = fcmClient;
         this.systemCache = systemCache;
     }
@@ -214,8 +209,6 @@ public class MedicationService {
 
             fcmClient.sendNotificationDirect(token, fcmMessageDTOs);
         });
-        //        systemCache.getMedicationRemindersMap().forEach((key, value) ->
-        //            messagingTemplate.convertAndSend("/topic/reminders/" + key, value));
     }
 
     private List<FCMMessageDTO> getFCMMessageForReminder(MedicationRemindersDTO medicationRemindersDTO) {

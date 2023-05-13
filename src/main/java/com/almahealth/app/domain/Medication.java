@@ -1,7 +1,6 @@
 package com.almahealth.app.domain;
 
 import com.almahealth.app.domain.enumeration.MedicationType;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import javax.persistence.*;
 

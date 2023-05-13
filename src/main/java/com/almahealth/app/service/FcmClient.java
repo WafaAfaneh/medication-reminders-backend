@@ -38,13 +38,6 @@ public class FcmClient {
         }
     }
 
-    //    @Async
-    //    public void sendNotification(String topic) throws InterruptedException, ExecutionException {
-    //        AndroidConfig androidConfig = prepareAndroid("Medication Reminder", "body");
-    //        ApnsConfig apnsConfig = prepareIos("Medication Reminder", "body");
-    //        fcmNotificationService.sendNotification(topic, androidConfig, apnsConfig, firebaseApp);
-    //    }
-
     @Async
     public void sendNotificationDirect(String token, List<FCMMessageDTO> messageDTOs) {
         List<Message> messages = prepareNotificationsMessagesPerUser(token, messageDTOs);
@@ -66,20 +59,6 @@ public class FcmClient {
                     .build()
             )
             .collect(Collectors.toList());
-        //        List<Message> messages = new ArrayList<>();
-        //        for (NotificationMessageDTO notificationMessage: notificationMessageDTOs) {
-        //
-        //            Message message = Message.builder()
-        //                .setNotification(Notification.builder().build())
-        //                .setToken(token)
-        //                .setApnsConfig(prepareIos(notificationMessage))
-        //                .setAndroidConfig(prepareAndroid(notificationMessage))
-        //                .build();
-        //
-        //            messages.add(message);
-        //        }
-        //        return messages;
-
     }
 
     public AndroidConfig prepareAndroid(FCMMessageDTO FCMMessageDTO) {
